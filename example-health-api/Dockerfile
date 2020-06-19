@@ -7,7 +7,7 @@ FROM openliberty/open-liberty:javaee8-ubi-min
 ENV INSTALL_DIR /opt/ol/wlp/
 ENV SERVER_DIR /opt/ol/wlp/usr/servers/defaultServer/
 # Add MySQL-Connector
-RUN curl -o ${INSTALL_DIR}lib/mysql-connector-java-8.0.16.jar https://repo1.ma
+RUN curl -o ${INSTALL_DIR}lib/mysql-connector-java-8.0.16.jar https://repo1.maven.org/maven2/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16.jar
 COPY liberty-mysql/mysql-driver.xml ${SERVER_DIR}configDropins/defaults/
 # Copy WAR-file from builder image
 COPY --from=builder target/health-api.war ${SERVER_DIR}apps
